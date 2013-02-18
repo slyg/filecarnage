@@ -1,0 +1,15 @@
+{
+    "name": "jscarnage-api",
+    "version": "0.0.1",
+    "main": "index.js",
+    "dependencies": {
+        "mongoose": "~3.5.5",
+        "hapi": "~0.13.2"
+    },
+    "devDependencies": {
+        "request" : "~2.12.0"
+    },
+    "scripts": {
+        "start": "node index.js"
+    }
+}
