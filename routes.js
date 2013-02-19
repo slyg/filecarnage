@@ -8,15 +8,20 @@ module.exports = function(server){
         {
             method: 'GET',
             path: '/api/suspects',
-            config: handlers.getAll
+            config: handlers.retrieve
         },
         {
-            method: 'PUT',
-            path: '/api/suspect',
-            config: handlers.create
+            method: 'GET',
+            path: '/api/suspects/{id?}',
+            config: handlers.retrieve
         },
         {
             method: 'POST',
+            path: '/api/suspects',
+            config: handlers.create
+        },
+        {
+            method: 'PUT',
             path: '/api/suspects/{id}',
             config: handlers.update
         }

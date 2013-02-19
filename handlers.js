@@ -4,16 +4,23 @@ var
 ;
 
 module.exports = {
-    getAll : {
+    retrieve : {
         handler: function(request) {
-            Suspect.find({}, function(err, res){ request.reply(res); });
+            if (request.params.id) {
+                Suspect.findOne({_id : request.params.id}, function(err, res){ request.reply(res); });
+                
+            } else {
+                Suspect.find({}, function(err, res){ request.reply(res); });
+            }
         }
     },
     create : {
         handler: function(request){
             var suspect = new Suspect(request.payload);
-            suspect.save();console.log(suspect);
-            request.reply(suspect);
+            suspect.save(function(){
+                if (err) request.reply(Hapi.Error.internal());
+                request.reply(suspect);
+            });
         }
     },
     update : {
@@ -22,7 +29,8 @@ module.exports = {
             var id = request.params.id;
             var payload  = request.payload;
             
-            Suspect.update({ _id: id }, { $set: {suspicions : payload}}).exec(function(err, suspect){
+            Suspect.update({ _id: id }, { $set: {suspicions : payload}}).exec(function(err, suspect, coucou){
+                console.log(this);
                 if (err) request.reply(Hapi.Error.internal());
                 request.reply();
             });

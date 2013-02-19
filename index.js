@@ -13,6 +13,3 @@ addRoutes(server);
 
 // Start the server
 server.start();
-
-
-
