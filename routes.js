@@ -17,6 +17,31 @@ module.exports = function(server){
             config: handlers.retrieve
         },
         {
+            method: 'GET',
+            path: conf.api.root + '/suspects/exists',
+            config: handlers.exists
+        },
+        {
+            method: 'GET',
+            path: conf.api.root + '/suspects/removed',
+            config: handlers.removed
+        },
+        {
+            method: 'GET',
+            path: conf.api.root + '/suspects/search/reference/{querystring}',
+            config: handlers.search.reference
+        },
+        {
+            method: 'GET',
+            path: conf.api.root + '/suspects/search/type/{querystring}',
+            config: handlers.search.type
+        },
+        {
+            method: 'GET',
+            path: conf.api.root + '/suspects/search/{typestring}/{suspicionkeystring}/{suspicionvaluestring}',
+            config: handlers.search.suspicion
+        },
+        {
             method: 'POST',
             path: conf.api.root + '/suspects',
             config: handlers.create
@@ -28,4 +53,4 @@ module.exports = function(server){
         }
     ]);
 
-}
+};

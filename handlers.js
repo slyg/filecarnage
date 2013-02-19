@@ -26,7 +26,7 @@ module.exports = {
     create : {
         handler: function(request){
             var suspect = new Suspect(request.payload);
-            suspect.save(function(){
+            suspect.save(function(err){
                 if(err) handleError(request); 
                 request.reply(suspect);
             });
@@ -43,6 +43,52 @@ module.exports = {
                 request.reply(suspect);
             });
             
+        }
+    },
+    exists : {
+        handler: function(request){
+            Suspect.find({'exists' : true}, function(err, suspects){
+                 if(err) handleError(request);
+                 request.reply(suspects);
+             });
+        }
+    },
+    removed : {
+        handler: function(request){
+            Suspect.find({'exists' : false}, function(err, suspects){
+                 if(err) handleError(request);
+                 request.reply(suspects);
+             });
+        }
+    },
+    search : {
+        reference : {
+            handler: function(request){
+                 Suspect.find({reference : new RegExp(request.params.querystring, 'i')}, function(err, suspects){
+                     if(err) handleError(request);
+                     request.reply(suspects);
+                 });
+            }
+        },
+        type : {
+            handler: function(request){
+                 Suspect.find({type : new RegExp(request.params.querystring, 'i')}, function(err, suspects){
+                     if(err) handleError(request);
+                     request.reply(suspects);
+                 });
+            }
+        },
+        suspicion : {
+            handler: function(request){
+                Suspect
+                    .where('type', new RegExp(request.params.typestring, 'i'))
+                    .where('suspicions.' + request.params.suspicionkeystring, request.params.suspicionvaluestring)
+                    .exec(function (err, suspects) {
+                        if(err) handleError(request);
+                        request.reply(suspects);
+                    })
+                ;
+            }
         }
     }
 };
