@@ -8,7 +8,6 @@ module.exports = {
         handler: function(request) {
             if (request.params.id) {
                 Suspect.findOne({_id : request.params.id}, function(err, res){ request.reply(res); });
-                
             } else {
                 Suspect.find({}, function(err, res){ request.reply(res); });
             }
@@ -29,10 +28,9 @@ module.exports = {
             var id = request.params.id;
             var payload  = request.payload;
             
-            Suspect.update({ _id: id }, { $set: {suspicions : payload}}).exec(function(err, suspect, coucou){
-                console.log(this);
+            Suspect.findOneAndUpdate({ _id: id }, { $set: {suspicions : payload}}).exec(function(err, suspect){
                 if (err) request.reply(Hapi.Error.internal());
-                request.reply();
+                request.reply(suspect);
             });
             
         }
