@@ -6,6 +6,9 @@ var
 module.exports = function(server){
 
     server.route([
+    
+        // Web services
+    
         {
             method: 'GET',
             path: conf.api.root + '/suspects',
@@ -50,6 +53,30 @@ module.exports = function(server){
             method: 'PUT',
             path: conf.api.root + '/suspects/{id}',
             config: handlers.update
+        },
+        
+        // Views
+        
+        {
+            method: 'GET',
+            path: '/resource/{path*}',
+            config: handlers.views.public
+        },
+        {
+            method: 'GET',
+            path: '/home',
+            config: handlers.views.home
+        },
+        {
+            method: 'GET',
+            path: '/suspects/search/{typestring}/{querystring}',
+            config: handlers.views.reference
+        }
+        ,
+        {
+            method: 'PUT',
+            path: '/suspects/{id}/scanned',
+            config: handlers.views.scanned
         }
     ]);
 

@@ -1,0 +1,34 @@
+body {
+
+    background-color:#444;
+    
+    min-height: 1000px;
+
+}
+
+#container {width: 960px; margin: 0 auto;}
+
+    table {background-color: #fff;}
+    
+    .flipswitch {white-space: nowrap; }
+    .flipswitch .flipswitch-btn-no {background-color: #3174d0;}
+    .flipswitch .flipswitch-btn-yes {background-color: #a35cb8;}
+    
+    td,
+    .remove,
+    .scan-done {color: black; -webkit-transition: color 0.3s}
+    
+    .removed td code {text-decoration: line-through;}
+    .scanned td,
+    .scanned .remove,
+    .scanned .scan-done {color: #bbb;}
+    
+    /**/
+    
+    #search-suspects {
+        margin-top: 200px;
+        background-color: #fff;
+        padding: 20px 20px 1px 200px;
+        -webkit-transition: margin-left 0.5s, margin-top 0.5s, background-color 0.3s, padding 0.5s;
+    }
+    #search-suspects.top {margin-top: 0; background-color: transparent; padding: 0;}

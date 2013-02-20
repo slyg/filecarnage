@@ -1,0 +1,91 @@
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Reference</th>
+            <th>Prob. unused</th>
+            <th>Contains JS</th>
+            <th>Contains redir.</th>
+            <th><abbr title="Remove">Rem.</abbr></th>
+            <th><abbr title="Scanned">Scan.</abbr></th>
+        </tr>
+        {{#each suspects}}
+        <tr data-object-id="{{_id}}">
+            <td><code>{{reference}}</code></td>
+            <td>
+                <div 
+                  class="flipswitch flipswitch-no"
+                  id="flip-probably_unused_{{_id}}">
+                
+                  <label class="flipswitch-lbl-yes">
+                    <input type="radio" checked="checked" /> No 
+                  </label>
+                
+                  <span class="flipswitch-sliders">
+                    <span class="flipswitch-outer">
+                      <span class="flipswitch-inner">
+                        <span class="flipswitch-btn-no"></span>
+                        <span class="flipswitch-btn-yes"></span>
+                      </span>
+                    </span>
+                    <span class="flipswitch-slider">||</span>
+                  </span>
+                
+                  <label class="flipswitch-lbl-no">
+                    <input type="radio" /> Yes
+                  </label>
+                </div>
+            </td>
+            <td>
+                <div 
+                  class="flipswitch flipswitch-no"
+                  id="flip-contains_inline_scripts_{{_id}}">
+                
+                  <label class="flipswitch-lbl-yes">
+                    <input type="radio" checked="checked" /> No 
+                  </label>
+                
+                  <span class="flipswitch-sliders">
+                    <span class="flipswitch-outer">
+                      <span class="flipswitch-inner">
+                        <span class="flipswitch-btn-no"></span>
+                        <span class="flipswitch-btn-yes"></span>
+                      </span>
+                    </span>
+                    <span class="flipswitch-slider">||</span>
+                  </span>
+                
+                  <label class="flipswitch-lbl-no">
+                    <input type="radio" /> Yes
+                  </label>
+                </div>
+            </td>
+            <td>
+                <div 
+                  class="flipswitch flipswitch-no"
+                  id="flip-contains_redirect_{{_id}}">
+                
+                  <label class="flipswitch-lbl-yes">
+                    <input type="radio" checked="checked" /> No 
+                  </label>
+                
+                  <span class="flipswitch-sliders">
+                    <span class="flipswitch-outer">
+                      <span class="flipswitch-inner">
+                        <span class="flipswitch-btn-no"></span>
+                        <span class="flipswitch-btn-yes"></span>
+                      </span>
+                    </span>
+                    <span class="flipswitch-slider">||</span>
+                  </span>
+                
+                  <label class="flipswitch-lbl-no">
+                    <input type="radio" /> Yes
+                  </label>
+                </div>
+            </td>
+            <td><a href="#" class="remove"><i class="vicon">&times;</i></a></td>
+            <td><a href="#" class="scan-done"><i class="vicon">e</i></a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

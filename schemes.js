@@ -4,15 +4,16 @@ module.exports = {
     
         reference   : String,
         type        : String,
-        exists      : {type : Boolean, default : true},
+        exists      : { type : Boolean, default : true },
+        scanned     : { type : Boolean, default : false }, // not scanned by default
         suspicions : {
-            probably_unused         : { type  : String, default : "not_scanned" },
-            contains_inline_scripts : { type  : String, default : "not_scanned" },
-            may_have_commented_code : { type  : String, default : "not_scanned" },
-            contains_$j             : { type  : String, default : "not_scanned" },
-            contains_$n$$           : { type  : String, default : "not_scanned" },
-            non_native              : { type  : String, default : "not_scanned" },
-            probably_unused         : { type  : String, default : "not_scanned" }
+            probably_unused         : { type  : Boolean, default : true }, // jspfile
+            contains_inline_scripts : { type  : Boolean, default : true }, // jspfile
+            contains_redirect       : { type  : Boolean, default : true }, // jspfile
+            may_have_commented_code : { type  : Boolean, default : true }, // jsfile
+            contains_$j             : { type  : Boolean, default : true }, // jsfile
+            contains_$n$$           : { type  : Boolean, default : true }, // jsfile
+            non_native              : { type  : Boolean, default : true }  // jsObject
         }
     
     }

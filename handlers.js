@@ -82,12 +82,56 @@ module.exports = {
             handler: function(request){
                 Suspect
                     .where('type', new RegExp(request.params.typestring, 'i'))
-                    .where('suspicions.' + request.params.suspicionkeystring, request.params.suspicionvaluestring)
+                    .where('suspicions.' + request.params.suspicionkeystring, (request.params.suspicionvaluestring == "true") ? true : false)
                     .exec(function (err, suspects) {
                         if(err) handleError(request);
                         request.reply(suspects);
                     })
                 ;
+            }
+        }
+    },
+    views : {
+        public : {
+            handler: {
+                directory: {
+                    path: './public/',
+                    listing: true
+                }
+            }
+        },
+        home : {
+            handler : function (request) {
+                request.reply.view('index', {
+                    title: 'JSP carnage'
+                }).send();
+            }
+        },
+        reference : {
+            handler: function(request){
+                Suspect.find({
+                    reference : new RegExp(request.params.querystring, 'i'), 
+                    type : request.params.typestring
+                }, function(err, suspects){
+                    if(err) handleError(request);
+                    request.reply.view('suspectsList', {
+                        suspects : suspects
+                    }).send();
+                });
+            }
+        },
+        scanned : {
+            handler : function(request){
+            
+                console.log(request.params.id);
+                
+                Suspect.findOneAndUpdate(
+                    { '_id': request.params.id }, 
+                    { $set: {'scanned' : (request.payload.scanned == "true") ? true : false }
+                }).exec(function(err, suspect){
+                    if(err) handleError(request);
+                    request.reply(suspect);
+                });
             }
         }
     }

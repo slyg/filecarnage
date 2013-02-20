@@ -6,7 +6,11 @@ var
     addRoutes       = require('./routes')
 ;
 
-var server = new Hapi.Server(appconf.api.host, appconf.api.port);
+var server = new Hapi.Server(appconf.api.host, appconf.api.port, {
+    views: {
+        path: __dirname + '/templates'
+    }
+});
 
 // Add routes
 addRoutes(server);
