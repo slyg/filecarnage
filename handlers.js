@@ -135,7 +135,7 @@ module.exports = {
             handler : function(request){
                 Suspect.findOneAndUpdate(
                     { '_id': request.params.id }, 
-                    { $set: {'exists' : (request.payload.removed == "true") ? true : false }
+                    { $set: {'removed' : (request.payload.removed == "true") ? true : false }
                 }).exec(function(err, suspect){
                     if(err) handleError(request);
                     request.reply(suspect);

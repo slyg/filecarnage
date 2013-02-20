@@ -4,7 +4,7 @@ module.exports = {
     
         reference   : String,
         type        : String,
-        exists      : { type : Boolean, default : true },
+        removed     : { type : Boolean, default : false },
         scanned     : { type : Boolean, default : false }, // not scanned by default
         suspicions : {
             probably_unused         : { type  : Boolean, default : true }, // jspfile

@@ -7,6 +7,7 @@ tetra.controller.register('suspectController', {
                 view : {
                     'suspect removed' : function(objId){
                         console.log("suspect removed", objId);
+                        orm('suspectRemoved').save({uriParams : {id : objId}, removed : true});
                     },
                     'suspect scanned' : function(objId){
                         console.log("suspect scanned", objId);

@@ -9,7 +9,7 @@
             <th><abbr title="Scanned">Scan.</abbr></th>
         </tr>
         {{#each suspects}}
-        <tr data-object-id="{{_id}}">
+        <tr data-object-id="{{_id}}" class="{{#if removed}}removed{{/if}} {{#if scanned}}scanned{{/if}}">
             <td><code>{{reference}}</code></td>
             <td>
                 <div 
