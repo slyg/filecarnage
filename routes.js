@@ -71,12 +71,16 @@ module.exports = function(server){
             method: 'GET',
             path: '/suspects/search/{typestring}/{querystring}',
             config: handlers.views.reference
-        }
-        ,
+        },
         {
             method: 'PUT',
             path: '/suspects/{id}/scanned',
             config: handlers.views.scanned
+        },
+        {
+            method: 'PUT',
+            path: '/suspects/{id}/removed',
+            config: handlers.views.removed
         }
     ]);
 

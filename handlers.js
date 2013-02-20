@@ -122,12 +122,20 @@ module.exports = {
         },
         scanned : {
             handler : function(request){
-            
-                console.log(request.params.id);
-                
                 Suspect.findOneAndUpdate(
                     { '_id': request.params.id }, 
                     { $set: {'scanned' : (request.payload.scanned == "true") ? true : false }
+                }).exec(function(err, suspect){
+                    if(err) handleError(request);
+                    request.reply(suspect);
+                });
+            }
+        },
+        removed : {
+            handler : function(request){
+                Suspect.findOneAndUpdate(
+                    { '_id': request.params.id }, 
+                    { $set: {'exists' : (request.payload.removed == "true") ? true : false }
                 }).exec(function(err, suspect){
                     if(err) handleError(request);
                     request.reply(suspect);
