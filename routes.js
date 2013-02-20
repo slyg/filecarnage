@@ -81,6 +81,11 @@ module.exports = function(server){
             method: 'PUT',
             path: '/suspects/{id}/removed',
             config: handlers.views.removed
+        },
+        {
+            method: 'PUT',
+            path: '/suspects/{id}/suspicion/{suspicionkeystring}',
+            config: handlers.views.suspicion
         }
     ]);
 

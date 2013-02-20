@@ -135,9 +135,29 @@ module.exports = {
             handler : function(request){
                 Suspect.findOneAndUpdate(
                     { '_id': request.params.id }, 
-                    { $set: {'removed' : (request.payload.removed == "true") ? true : false }
-                }).exec(function(err, suspect){
+                    { $set: {'removed' : (request.payload.removed == "true") ? true : false }}
+                ).exec(function(err, suspect){
                     if(err) handleError(request);
+                    request.reply(suspect);
+                });
+            }
+        },
+        suspicion : {
+            handler : function(request){
+                var 
+                    id                  = request.params.id,
+                    suspicionkeystring  = request.params.suspicionkeystring,
+                    setObj = {}
+                ;
+                
+                setObj['suspicions.' + suspicionkeystring] = (request.payload.value == "true") ? true : false;
+                
+                Suspect.findOneAndUpdate(
+                    { '_id': id },
+                    { $set: setObj}
+                ).exec(function(err, suspect){
+                    if(err) handleError(request);
+                    console.log(suspect);
                     request.reply(suspect);
                 });
             }

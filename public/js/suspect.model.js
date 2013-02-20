@@ -37,3 +37,23 @@ tetra.model.register('suspectRemoved', {
 	};}
 
 });
+
+tetra.model.register('suspectSuspicion', {
+
+	req : {
+		save : {
+			url : '/suspects/{0}/suspicion/{1}',
+			uriParams: ['id', 'suspicionkeystring'],
+			method: 'PUT'
+		}
+	},
+		
+	attr : {},
+	
+	methods : function(attr) { return {
+		validate : function(attr, errors){
+			return errors;
+		}
+	};}
+
+});

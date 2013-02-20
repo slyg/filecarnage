@@ -16,8 +16,24 @@ tetra.controller.register('suspectController', {
                 },
                 controller : {
                     'flipswitch: set state' : function(data){
-                        var state = !data.state, id = data.id; // invert 'cause negative is good when talking about suspicions
-                        console.log(id, state);
+                        var 
+                            state = !data.state, // invert 'cause negative is good when talking about suspicions
+                            id = data.id
+                        ; 
+                        var 
+                            references = id.split("-"),
+                            suspicionType = references[1],
+                            objId = references[2],
+                            toBeSaved = {}
+                        ;
+                        
+                        toBeSaved['uriParams'] = {id : objId, suspicionkeystring : suspicionType};
+                        toBeSaved['value'] = state;
+                        
+                        console.log(toBeSaved);
+                        
+                        orm('suspectSuspicion').save(toBeSaved);
+                        
                     }
                 }
             }
