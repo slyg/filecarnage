@@ -1,12 +1,26 @@
 body {
 
-    background-color:#444;
-    
+    background: -webkit-radial-gradient(#aaaaaa 0%, #636363 100%);
     min-height: 1000px;
 
 }
 
 #container {width: 960px; margin: 0 auto;}
+    
+    /* form */
+    
+    #search-suspects {
+        -webkit-border-radius : 10px;
+        margin-top: 200px;
+        background-color: #fff;
+        padding: 20px 20px 1px 200px;
+        -webkit-transition: margin-left 0.5s, margin-top 0.5s, background-color 0.3s, padding 0.5s;
+    }
+    #search-suspects.top {margin-top: 0; background-color: transparent; padding: 0;}
+    
+    #search-suspects input {font-family: Monaco,Andale Mono,Courier New,monospace;}
+    
+    /* suspects */
 
     table {background-color: #fff;}
     
@@ -21,14 +35,4 @@ body {
     .removed td code {text-decoration: line-through;}
     .scanned td,
     .scanned .remove,
-    .scanned .scan-done {color: #bbb;}
-    
-    /**/
-    
-    #search-suspects {
-        margin-top: 200px;
-        background-color: #fff;
-        padding: 20px 20px 1px 200px;
-        -webkit-transition: margin-left 0.5s, margin-top 0.5s, background-color 0.3s, padding 0.5s;
-    }
-    #search-suspects.top {margin-top: 0; background-color: transparent; padding: 0;}
+    .scanned .scan-done {color: #ccc;}
