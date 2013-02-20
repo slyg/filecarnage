@@ -154,10 +154,9 @@ module.exports = {
                 
                 Suspect.findOneAndUpdate(
                     { '_id': id },
-                    { $set: setObj}
+                    { $set: setObj }
                 ).exec(function(err, suspect){
                     if(err) handleError(request);
-                    console.log(suspect);
                     request.reply(suspect);
                 });
             }

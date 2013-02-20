@@ -13,7 +13,7 @@
             <td><code>{{reference}}</code></td>
             <td>
                 <div 
-                  class="flipswitch flipswitch-no"
+                  class="flipswitch flipswitch-{{#if suspicions.probably_unused}}no{{else}}yes{{/if}}"
                   id="flip-probably_unused-{{_id}}">
                 
                   <label class="flipswitch-lbl-yes">
@@ -37,7 +37,7 @@
             </td>
             <td>
                 <div 
-                  class="flipswitch flipswitch-no"
+                  class="flipswitch flipswitch-{{#if suspicions.contains_inline_scripts}}no{{else}}yes{{/if}}"
                   id="flip-contains_inline_scripts-{{_id}}">
                 
                   <label class="flipswitch-lbl-yes">
@@ -61,7 +61,7 @@
             </td>
             <td>
                 <div 
-                  class="flipswitch flipswitch-no"
+                  class="flipswitch flipswitch-{{#if suspicions.contains_redirect}}no{{else}}yes{{/if}}"
                   id="flip-contains_redirect-{{_id}}">
                 
                   <label class="flipswitch-lbl-yes">
