@@ -1,5 +1,5 @@
-<table class="table">
-    <tbody>
+<table class="table" id="dataset">
+    <thead>
         <tr>
             <th>Reference</th>
             <th>Prob. unused</th>
@@ -8,16 +8,18 @@
             <th><abbr title="Remove">Rem.</abbr></th>
             <th><abbr title="Scanned">Scan.</abbr></th>
         </tr>
+    </thead>
+    <tbody>
         {{#each suspects}}
         <tr data-object-id="{{_id}}" class="{{#if removed}}removed{{/if}} {{#if scanned}}scanned{{/if}}">
             <td><code>{{reference}}</code></td>
             <td>
                 <div 
-                  class="flipswitch flipswitch-{{#if suspicions.probably_unused}}no{{else}}yes{{/if}}"
+                  class="flipswitch flipswitch-{{#if suspicions.probably_unused}}yes{{else}}no{{/if}}"
                   id="flip-probably_unused-{{_id}}">
                 
                   <label class="flipswitch-lbl-yes">
-                    <input type="radio" checked="checked" /> No 
+                    <input type="radio" checked="checked" /> Yes 
                   </label>
                 
                   <span class="flipswitch-sliders">
@@ -31,17 +33,17 @@
                   </span>
                 
                   <label class="flipswitch-lbl-no">
-                    <input type="radio" /> Yes
+                    <input type="radio" /> No
                   </label>
                 </div>
             </td>
             <td>
                 <div 
-                  class="flipswitch flipswitch-{{#if suspicions.contains_inline_scripts}}no{{else}}yes{{/if}}"
+                  class="flipswitch flipswitch-{{#if suspicions.contains_inline_scripts}}yes{{else}}no{{/if}}"
                   id="flip-contains_inline_scripts-{{_id}}">
                 
                   <label class="flipswitch-lbl-yes">
-                    <input type="radio" checked="checked" /> No 
+                    <input type="radio" checked="checked" /> Yes 
                   </label>
                 
                   <span class="flipswitch-sliders">
@@ -55,17 +57,17 @@
                   </span>
                 
                   <label class="flipswitch-lbl-no">
-                    <input type="radio" /> Yes
+                    <input type="radio" /> No
                   </label>
                 </div>
             </td>
             <td>
                 <div 
-                  class="flipswitch flipswitch-{{#if suspicions.contains_redirect}}no{{else}}yes{{/if}}"
+                  class="flipswitch flipswitch-{{#if suspicions.contains_redirect}}yes{{else}}no{{/if}}"
                   id="flip-contains_redirect-{{_id}}">
                 
                   <label class="flipswitch-lbl-yes">
-                    <input type="radio" checked="checked" /> No 
+                    <input type="radio" checked="checked" /> Yes 
                   </label>
                 
                   <span class="flipswitch-sliders">
@@ -79,7 +81,7 @@
                   </span>
                 
                   <label class="flipswitch-lbl-no">
-                    <input type="radio" /> Yes
+                    <input type="radio" /> No
                   </label>
                 </div>
             </td>

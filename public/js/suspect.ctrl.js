@@ -6,34 +6,26 @@ tetra.controller.register('suspectController', {
             events : {
                 view : {
                     'suspect removed' : function(objId){
-                        console.log("suspect removed", objId);
                         orm('suspectRemoved').save({uriParams : {id : objId}, removed : true});
                     },
                     'suspect scanned' : function(objId){
-                        console.log("suspect scanned", objId);
                         orm('suspectScanned').save({uriParams : {id : objId}, scanned : true});
+                    },
+                    'hide scanned' : function(){
+                        app.notify('hide scanned');
                     }
                 },
                 controller : {
                     'flipswitch: set state' : function(data){
                         var 
-                            state = !data.state, // invert 'cause negative is good when talking about suspicions
-                            id = data.id
-                        ; 
-                        var 
-                            references = id.split("-"),
+                            references = data.id.split("-"),
                             suspicionType = references[1],
                             objId = references[2],
                             toBeSaved = {}
                         ;
-                        
                         toBeSaved['uriParams'] = {id : objId, suspicionkeystring : suspicionType};
-                        toBeSaved['value'] = state;
-                        
-                        console.log(toBeSaved);
-                        
+                        toBeSaved['value'] = data.state;
                         orm('suspectSuspicion').save(toBeSaved);
-                        
                     }
                 }
             }

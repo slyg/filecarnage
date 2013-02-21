@@ -1,6 +1,6 @@
 body {
 
-    background: -webkit-radial-gradient(#aaaaaa 0%, #636363 100%);
+    background: url(/resource/img/camobg2.jpeg) repeat;
     min-height: 1000px;
 
 }
@@ -15,24 +15,35 @@ body {
         background-color: #fff;
         padding: 20px 20px 1px 200px;
         -webkit-transition: margin-left 0.5s, margin-top 0.5s, background-color 0.3s, padding 0.5s;
+        box-shadow : 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
     }
-    #search-suspects.top {margin-top: 0; background-color: transparent; padding: 0;}
+    #search-suspects.top {margin-top: 0; background-color: transparent; padding: 0; box-shadow : none;}
     
     #search-suspects input {font-family: Monaco,Andale Mono,Courier New,monospace;}
     
+    #search-suspects .hide-scanned {color: white;}
+    
     /* suspects */
 
-    table {background-color: #fff;}
+    table {background-color: #fff; box-shadow : 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);}
     
     .flipswitch {white-space: nowrap; }
-    .flipswitch .flipswitch-btn-no {background-color: #3174d0;}
-    .flipswitch .flipswitch-btn-yes {background-color: #a35cb8;}
+    .flipswitch .flipswitch-btn-no {background-color: #6D7779;}
+    .flipswitch .flipswitch-btn-yes {background-color: #C3BEBB;}
     
-    td,
+    td code,
+    td div,
     .remove,
-    .scan-done {color: black; -webkit-transition: color 0.3s}
+    .scan-done {color: black; -webkit-transition: opacity 0.3s}
     
     .removed td code {text-decoration: line-through;}
-    .scanned td,
+    
+    .scanned td code,
+    .scanned td div,
     .scanned .remove,
-    .scanned .scan-done {color: #ccc;}
+    .scanned .scan-done {opacity: 0.3;}
+    
+    .remove {-webkit-transition: opacity: 0.3s;}
+    .removed .remove {opacity: 0.3;}
+    
+    #dataset-cloned, #dataset {width: 960px!important;}

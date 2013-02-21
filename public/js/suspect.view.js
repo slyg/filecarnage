@@ -6,18 +6,23 @@ tetra.view.register('suspectView', {
             events : {
                 user : {
                     'click' : {
-                        '.remove' : function(e, elm){
+                        '#suspects-list .remove' : function(e, elm){
                             var container = elm.parents('tr');
                             var objId = container.data('object-id');
                             app.notify("suspect removed", objId);
                             container.addClass('removed');
                         },
-                        '.scan-done' : function(e, elm){
+                        '#suspects-list .scan-done' : function(e, elm){
                             var container = elm.parents('tr');
                             var objId = container.data('object-id');
                             app.notify("suspect scanned", objId);
                             container.addClass('scanned');
                         }
+                    }
+                },
+                controller : {
+                    'hide scanned' : function(){
+                        _('#suspects-list .scanned').fadeOut();
                     }
                 }
             }

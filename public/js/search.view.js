@@ -11,6 +11,11 @@ tetra.view.register('searchView', {
                             app.notify("search suspects", encodeURIComponent(query) );
                             _(elm).parents('#search-suspects').addClass('top');
                         }
+                    },
+                    'click' : {
+                        '#search-suspects .hide-scanned' : function(e, elm){
+                           app.notify("hide scanned"); 
+                        }
                     }
                 },
                 controller : {
@@ -18,7 +23,9 @@ tetra.view.register('searchView', {
                         _('#suspects-list').fadeOut(function(){
                             _('#suspects-list')
                                 .html(html)
-                                .fadeIn();
+                                .fadeIn()
+                            ;
+                            _("#dataset").fixedHeader();
                         });
                     }
                 }
