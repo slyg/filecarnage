@@ -64,7 +64,7 @@ module.exports = function(server){
         },
         {
             method: 'GET',
-            path: '/home',
+            path: '/',
             config: handlers.views.home
         },
         {
