@@ -8,8 +8,11 @@ body {
 #container {width: 960px; margin: 0 auto; position: relative;}
 
     h1 {
-        width : 304px; height: 66px; text-indent: -10000px; 
-        background: url(/resource/img/jspcarnage.png) center center no-repeat; position: absolute; right: 0; top: 0;
+        font-family: 'Stardos Stencil', cursive;
+        font-weight: bold;
+        position: absolute; right: 0; top: 27px;
+        font-size: 35px;
+        -webkit-transform: rotate(7deg);
     }
     
     /* form */
