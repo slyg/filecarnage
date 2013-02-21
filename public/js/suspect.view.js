@@ -7,23 +7,28 @@ tetra.view.register('suspectView', {
                 user : {
                     'click' : {
                         '#suspects-list .remove' : function(e, elm){
-                            var container = elm.parents('tr');
-                            var objId = container.data('object-id');
-                            app.notify("suspect removed", objId);
-                            container.addClass('removed');
+                            var 
+                                container = elm.parents('tr'),
+                                objId = container.data('object-id'),
+                                alreadyRemoved = container.hasClass('removed')
+                            ;
+                            app.notify(alreadyRemoved ? "suspect not removed" : "suspect removed", objId);
+                            container[alreadyRemoved ? 'removeClass' : 'addClass']('removed');
                         },
                         '#suspects-list .scan-done' : function(e, elm){
-                            var container = elm.parents('tr');
-                            var objId = container.data('object-id');
-                            app.notify("suspect scanned", objId);
-                            container.addClass('scanned');
+                            var 
+                                container = elm.parents('tr'),
+                                objId = container.data('object-id'),
+                                alreadyScanned = container.hasClass('scanned')
+                            ;
+                            app.notify(alreadyScanned ? "suspect not scanned" : "suspect scanned", objId);
+                            container[alreadyScanned ? 'removeClass' : 'addClass']('scanned');
                         }
                     }
                 },
                 controller : {
-                    'hide scanned' : function(){
-                        _('#suspects-list .scanned').fadeOut();
-                    }
+                    'hide scanned' : function(){ _('#suspects-list .scanned').fadeOut(); },
+                    'show scanned' : function(){ _('#suspects-list .scanned').fadeIn(); }
                 }
             }
         }

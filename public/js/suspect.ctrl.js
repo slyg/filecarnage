@@ -8,11 +8,20 @@ tetra.controller.register('suspectController', {
                     'suspect removed' : function(objId){
                         orm('suspectRemoved').save({uriParams : {id : objId}, removed : true});
                     },
+                    'suspect not removed' : function(objId){
+                        orm('suspectRemoved').save({uriParams : {id : objId}, removed : false});
+                    },
                     'suspect scanned' : function(objId){
                         orm('suspectScanned').save({uriParams : {id : objId}, scanned : true});
                     },
+                    'suspect not scanned' : function(objId){
+                        orm('suspectScanned').save({uriParams : {id : objId}, scanned : false});
+                    },
                     'hide scanned' : function(){
                         app.notify('hide scanned');
+                    },
+                    'show scanned' : function(){
+                        app.notify('show scanned');
                     }
                 },
                 controller : {
