@@ -20,6 +20,8 @@ body {
     #search-suspects.top {margin-top: 0; background-color: transparent; padding: 0; box-shadow : none;}
     
     #search-suspects input {font-family: Monaco,Andale Mono,Courier New,monospace;}
+    #search-suspects.top input,
+    #search-suspects.top button {box-shadow : 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);}
     
     #search-suspects .hide-scanned {color: white;}
     
