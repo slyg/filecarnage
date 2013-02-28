@@ -102,3 +102,8 @@ body {
     #search-suspects {padding: 20px 20px 1px 80px;}
     #search-suspects input {width: 468px;}
 }
+
+@media all and (max-width:640px) {
+    table,thead,tbody,tfoot,th,td,tr{display:block}
+    tr+tr{margin-top:1em}
+}
