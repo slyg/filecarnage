@@ -23,9 +23,10 @@ tetra.view.register('searchView', {
                         _('#suspects-list').fadeOut(function(){
                             _('#suspects-list')
                                 .html(html)
-                                .fadeIn()
+                                .fadeIn(function(){
+                                    _("#dataset").fixedHeader();
+                                })
                             ;
-                            _("#dataset").fixedHeader();
                         });
                     }
                 }
