@@ -68,23 +68,13 @@ body {
     #search-suspects {padding: 20px 20px 1px 20px;}
     #search-suspects input {width: 120px;}
     h1 {display: none;}
-    #dataset-cloned {display: none;}
-    #dataset-cloned, #dataset, code {font-size: smaller;}
 }
 
-@media screen and (min-width: 480px) {
-    #container {width: 460px; padding: 0 10px;}
-    #search-suspects {padding: 20px 20px 1px 20px;}
-    #search-suspects input {width: 280px;}
-    h1 {display: block;}
-    #dataset-cloned, #dataset, code {font-size: inherit;}
-}
-
-@media screen and (min-width: 600px) {
-    #container {width: 580px;}
+@media screen and (min-width: 640px) {
+    #container {width: 620px;}
     #search-suspects {padding: 20px 20px 1px 140px;}
-    #dataset-cloned {display: table;}
     #search-suspects input {width: 140px;}
+    h1 {display: block;}
 }
 
 @media screen and (min-width: 768px) {
@@ -108,4 +98,5 @@ body {
 @media all and (max-width:640px) {
     table,thead,tbody,tfoot,th,td,tr{display:block}
     tr+tr{margin-top:1em}
+    #dataset-cloned {display: none!important;}
 }
