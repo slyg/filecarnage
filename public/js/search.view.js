@@ -7,8 +7,14 @@ tetra.view.register('searchView', {
                 user : {
                     'submit' : {
                         '#search-suspects form' : function(e, elm){
-                            var query = _(elm).find('input')[0].value;
-                            app.notify("search suspects", encodeURIComponent(query) );
+                            var 
+                                query = _(elm).find('input')[0].value,
+                                type = _(elm).find('select')[0].value
+                            ;
+                            app.notify("search suspects", {
+                                query : encodeURIComponent(query), 
+                                type : type
+                            });
                             _(elm).parents('#search-suspects').addClass('top');
                         }
                     },

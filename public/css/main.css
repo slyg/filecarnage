@@ -10,16 +10,22 @@ body {
         font-weight: bold;
         position: absolute; right: 10px; top: 27px;
         font-size: 30px;
+        transform: rotate(7deg);
+        -moz-transform: rotate(7deg);
         -webkit-transform: rotate(7deg);
     }
     
     /* form */
     
     #search-suspects {
+        border-radius : 10px;
+        -moz-border-radius : 10px;
         -webkit-border-radius : 10px;
         margin-top: 200px;
         background-color: #fff;
         padding: 20px 20px 1px 200px;
+        transition: margin-left 0.5s, margin-top 0.5s, background-color 0.3s, padding 0.5s;
+        -moz-transition: margin-left 0.5s, margin-top 0.5s, background-color 0.3s, padding 0.5s;
         -webkit-transition: margin-left 0.5s, margin-top 0.5s, background-color 0.3s, padding 0.5s;
         box-shadow : 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
     }

@@ -3,8 +3,8 @@ tetra.model.register('suspectSearch', {
 	req : {
 		
 		fetch : {
-			url: '/suspects/search/jspfile/{0}',
-			uriParams : ['querystring'],
+			url: '/suspects/search/{0}/{1}',
+			uriParams : ['typestring', 'querystring'],
 			parser : function(resp, col, cond) {
 				col[cond.uriParams.url] = {id: cond.uriParams.url, html: resp};
 				return col;

@@ -5,6 +5,11 @@ var
 
 module.exports = function(server){
 
+    var 
+        ws = handlers.ws,
+        views = handlers.views
+    ;
+
     server.route([
     
         // Web services
@@ -12,80 +17,58 @@ module.exports = function(server){
         {
             method: 'GET',
             path: conf.api.root + '/suspects',
-            config: handlers.retrieve
+            config: ws.retrieve
         },
         {
             method: 'GET',
             path: conf.api.root + '/suspects/{id?}',
-            config: handlers.retrieve
-        },
-        {
-            method: 'GET',
-            path: conf.api.root + '/suspects/exists',
-            config: handlers.exists
-        },
-        {
-            method: 'GET',
-            path: conf.api.root + '/suspects/removed',
-            config: handlers.removed
-        },
-        {
-            method: 'GET',
-            path: conf.api.root + '/suspects/search/reference/{querystring}',
-            config: handlers.search.reference
-        },
-        {
-            method: 'GET',
-            path: conf.api.root + '/suspects/search/type/{querystring}',
-            config: handlers.search.type
-        },
-        {
-            method: 'GET',
-            path: conf.api.root + '/suspects/search/{typestring}/{suspicionkeystring}/{suspicionvaluestring}',
-            config: handlers.search.suspicion
+            config: ws.retrieve
         },
         {
             method: 'POST',
             path: conf.api.root + '/suspects',
-            config: handlers.create
+            config: ws.create
         },
         {
             method: 'PUT',
             path: conf.api.root + '/suspects/{id}',
-            config: handlers.update
+            config: ws.update
+        },
+        
+        // Static resources
+        
+        {
+            method: 'GET',
+            path: '/resource/{path*}',
+            config: views.public
         },
         
         // Views
         
         {
             method: 'GET',
-            path: '/resource/{path*}',
-            config: handlers.views.public
-        },
-        {
-            method: 'GET',
             path: '/',
-            config: handlers.views.home
+            config: views.home
         },
         {
             method: 'GET',
             path: '/suspects/search/{typestring}/{querystring}',
-            config: handlers.views.reference
+            config: views.reference
         },
         {
             method: 'PUT',
             path: '/suspects/{id}/scanned',
-            config: handlers.views.scanned
+            config: views.scanned
         },
         {
             method: 'PUT',
             path: '/suspects/{id}/removed',
-            config: handlers.views.removed
+            config: views.removed
         },
         {
             method: 'PUT',
             path: '/suspects/{id}/suspicion/{suspicionkeystring}',
-            config: handlers.views.suspicion
+            config: views.suspicion
         }
     ]);
 

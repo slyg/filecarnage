@@ -6,7 +6,12 @@ tetra.controller.register('searchController', {
             events : {
                 view : {
                     'search suspects' : function(data){
-                        orm('suspectSearch').fetch({uriParams : {querystring : data}});
+                        orm('suspectSearch').fetch({
+                            uriParams : {
+                                typestring : data.type, 
+                                querystring : data.query
+                            }
+                        });
                     }
                 },
                 model : {

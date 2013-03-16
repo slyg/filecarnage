@@ -2,9 +2,9 @@
     <thead>
         <tr>
             <th>Reference</th>
-            <th>Prob. unused</th>
-            <th>Contains inline JS</th>
-            <th>Contains redir.</th>
+            {{#each suspicions}}
+            <th>{{label}}</th>
+            {{/each}}
             <th><abbr title="Deleted">Del.</abbr></th>
             <th><abbr title="Scanned">Scan.</abbr></th>
         </tr>

@@ -1,7 +1,7 @@
 var 
     path        = require('path'),
     appconf     = require('./conf'),
-    schemes     = require('./schemes'),
+    schemes     = require('./schemes').schemas,
     mongoose    = require('mongoose'),
     Schema      = mongoose.Schema
 ;

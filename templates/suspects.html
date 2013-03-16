@@ -1,0 +1,48 @@
+<table class="table" id="dataset">
+    <thead>
+        <tr>
+            <th>Reference</th>
+            {{#each suspicionsList}}
+            <th>{{label}}</th>
+            {{/each}}
+            <th><abbr title="Deleted">Del.</abbr></th>
+            <th><abbr title="Scanned">Scan.</abbr></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each suspects}}
+        <tr data-object-id="{{id}}" class="{{#if removed}}removed{{/if}} {{#if scanned}}scanned{{/if}}">
+            <td><code>{{reference}}</code></td>
+            {{#each suspicions}}
+            <td>
+                <div 
+                  class="flipswitch flipswitch-{{#if value}}yes{{else}}no{{/if}}"
+                  id="flip-{{ref}}-{{../id}}">
+                
+                  <label class="flipswitch-lbl-yes">
+                    <input type="radio" checked="checked" /> Yes 
+                  </label>
+                
+                  <span class="flipswitch-sliders">
+                    <span class="flipswitch-outer">
+                      <span class="flipswitch-inner">
+                        <span class="flipswitch-btn-no"></span>
+                        <span class="flipswitch-btn-yes"></span>
+                      </span>
+                    </span>
+                    <span class="flipswitch-slider">||</span>
+                  </span>
+                
+                  <label class="flipswitch-lbl-no">
+                    <input type="radio" /> No
+                  </label>
+                </div>
+            </td>
+            {{/each}}
+            <td><a href="#" class="remove"><i class="vicon">&times;</i></a></td>
+            <td><a href="#" class="scan-done"><i class="vicon">e</i></a></td>
+        </tr>
+        
+        {{/each}}
+    </tbody>
+</table>
