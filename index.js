@@ -9,8 +9,15 @@ var
 var server = new Hapi.Server(appconf.api.host, appconf.api.port, {
     views: {
         path: __dirname + '/templates'
-    }
+    },
+    engine: {
+        module: 'handlebars',
+        extension: 'html'
+    },
+    layout: true
 });
+
+
 
 // Add routes
 addRoutes(server);

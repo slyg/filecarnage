@@ -1,7 +1,7 @@
 var 
-    Suspect = require('./models').Suspect,
-    suspectsTypes = require('./schemes').suspectsTypes,
-    suspectSuspicionsPerType = require('./schemes').suspectSuspicionsPerType,
+    Suspect = require('./../models').Suspect,
+    suspectsTypes = require('./../schemes').suspectsTypes,
+    suspectSuspicionsPerType = require('./../schemes').suspectSuspicionsPerType,
     Hapi = require('hapi'),
     async = require('async')
 ;
@@ -54,14 +54,14 @@ module.exports = {
         public : {
             handler: {
                 directory: {
-                    path: './public/',
+                    path: './../public/',
                     listing: true
                 }
             }
         },
         home : {
-            handler : function (request) {
-                request.reply.view('index', {
+            handler : function(request) {
+                request.reply.view('views/index', {
                     title: 'File carnage',
                     types : suspectsTypes
                 }).send();

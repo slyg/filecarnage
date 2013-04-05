@@ -37,6 +37,11 @@ module.exports = {
         ],
         "jsobject"  : [
             { ref : 'non_native',                   label : 'Non native'        }
+        ],
+        "tetramodule":[
+            { ref : 'has_jquery',                   label : 'jQuery dep.'       },
+            { ref : 'has_prototype_scriptaculous'   label : 'Prototype/Script. dep.' },
+            { ref : 'has_other_third_party_dep'     label : 'Other dependency' }
         ]
     }
 }

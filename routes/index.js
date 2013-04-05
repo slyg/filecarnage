@@ -1,6 +1,6 @@
 var 
-    conf      = require('./conf'),
-    handlers  = require('./handlers')
+    conf      = require('./../conf'),
+    handlers  = require('./../handlers')
 ;
 
 module.exports = function(server){
